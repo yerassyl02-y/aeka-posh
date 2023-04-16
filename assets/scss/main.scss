@@ -1,0 +1,170 @@
+* {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+}
+
+p,
+span,
+a {
+        text-decoration: unset;
+        font-weight: 400;
+        font-style: normal;
+        font-family: 'AnonymousPro-Regular';
+}
+
+.d-flex {
+        display: flex;
+}
+
+.flex-column {
+        flex-direction: column;
+}
+
+.align-center {
+        align-items: center;
+}
+
+.align-start {
+        align-items: flex-start;
+}
+
+.align-end {
+        align-items: flex-end;
+}
+
+.justify-center {
+        justify-content: center;
+}
+
+.justify-space-between {
+        justify-content: space-between;
+}
+
+.justify-start {
+        justify-content: flex-start;
+}
+
+.justify-end {
+        justify-content: flex-end;
+}
+
+.bg-primary {
+        background-color: #FFF1E3;
+}
+
+.bg-white {
+        background-color: white;
+}
+
+.bg-brown {
+        background-color: #72695F;
+}
+
+.w-full {
+        width: 100%;
+}
+
+.h-full {
+        height: 100vh;
+}
+
+.radius-6 {
+        border-radius: 6px;
+}
+
+.font-72 {
+        font-size: 72px;
+}
+
+.font-40 {
+        font-size: 40px;
+}
+
+.font-32 {
+        font-size: 32px;
+}
+
+.font-24 {
+        font-size: 24px;
+}
+
+.font-20 {
+        font-size: 20px;
+}
+
+.font-16 {
+        font-size: 16px;
+}
+
+.font-12 {
+        font-size: 12px;
+}
+
+.text-underline {
+        text-decoration: underline !important;
+}
+
+.font-bold {
+        font-weight: bold;
+}
+
+.font-600 {
+        font-weight: 600;
+}
+
+.font-500 {
+        font-weight: 500;
+}
+
+.color-primary {
+        color: #72695F;
+}
+
+.color-gray {
+        color: #9D9696;
+}
+
+label {
+        display: flex;
+        flex-direction: column;
+
+        max-width: 416px;
+        width: 100%;
+
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 17px;
+        color: #9D9696;
+        font-family: "AnonymousPro-Regular";
+
+        input {
+                font-family: "AnonymousPro-Regular";
+                outline: unset;
+                padding: 4px 0 8px;
+
+                font-style: normal;
+                font-weight: 700;
+                font-size: 20px;
+                line-height: 20px;
+                color: #72695F;
+        }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+        font-family: 'AnonymousPro-Bold';
+}
+
+.content {
+        padding: 0 80px;
+}
+
+.mr-12 {
+        margin-right: 12px;
+}
