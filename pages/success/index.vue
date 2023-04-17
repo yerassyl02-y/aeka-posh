@@ -262,6 +262,7 @@ export default {
         },
         openLink() {
             window.open(this.link, "_blank");
+            this.$router.push({ path: "/" });
         },
     },
 };
@@ -451,6 +452,43 @@ export default {
 
         svg {
             margin-right: 8px;
+        }
+    }
+}
+
+@media screen and (max-width: 760px) {
+    .form {
+        padding: 80px 24px 0;
+
+        max-width: 343px;
+        width: 100%;
+
+        &__title {
+            font-size: 40px;
+        }
+
+        &__btn {
+            max-width: 343px;
+            width: 100%;
+            font-size: 20px;
+        }
+    }
+    .wheel {
+        &__btn {
+            max-width: 343px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+    .wheel-content {
+        align-items: center;
+    }
+
+    .prize {
+        &__title {
+            text-align: center;
         }
     }
 }
