@@ -5,7 +5,7 @@
         <form
             ref="form"
             @submit.prevent="handleSubmit"
-            class="d-flex flex-column align-center justify-center"
+            class="d-flex flex-column align-center justify-center form"
         >
             <h1 class="form__title font-bold font-40 color-primary">
                 Регистрация
@@ -111,6 +111,22 @@ export default {
         border-bottom: 1px solid #9d9696;
         border-radius: 2px;
         background: #fff1e3;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .login {
+        padding: 0 24px;
+    }
+
+    .form {
+        max-width: 343px;
+        width: 100%;
+
+        &__button {
+            max-width: 343px;
+            width: 100% !important;
+        }
     }
 }
 </style>
