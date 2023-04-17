@@ -17,8 +17,11 @@
                     class="form__input"
                     v-model="email"
                     id="email"
+                    :class="{ invalid_input: !this.valid }"
+                    @input="validateEmail"
                 />
             </label>
+            <p v-if="message" class="error-message">Упс!{{ message }}</p>
             <button
                 class="form__btn d-flex align-center justify-center bg-brown"
                 type="submit"
@@ -200,27 +203,45 @@ export default {
             user: {},
             link: "",
             email: "",
+            valid: false,
+            message: "",
         };
     },
     methods: {
+        validateEmail() {
+            if (
+                /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.email)
+            ) {
+                this.valid = true;
+            } else this.valid = false;
+        },
         async onSubmit() {
-            await this.$axios
-                .get(`/attempts/${this.email}`, {
-                    auth: this.auth,
-                })
-                .then((res) => {
-                    if (res.data.valid) {
-                        this.user = {
-                            email: res.data.email,
-                            inst: res.data.instagram,
-                            phone: res.data.phone_number,
-                            name: res.data.name,
-                        };
-                        this.showWheel = true;
-                        this.showEmail = false;
-                    }
-                })
-                .catch((err) => console.error(err));
+            if (this.valid) {
+                await this.$axios
+                    .get(`/attempts/${this.email}`, {
+                        auth: this.auth,
+                    })
+                    .then((res) => {
+                        if (res.data.valid) {
+                            this.user = {
+                                email: res.data.email,
+                                inst: res.data.instagram,
+                                phone: res.data.phone_number,
+                                name: res.data.name,
+                            };
+                            this.showWheel = true;
+                            this.showEmail = false;
+                        }
+                    })
+                    .catch((err) => {
+                        if (
+                            err.response.data.dev_message ===
+                            "этот эмейл уже крутило колесо"
+                        )
+                            this.message = err.response.data.dev_message;
+                        else this.message = "Данный эмейл не зарегистрирован";
+                    });
+            }
         },
         async getPrizesList() {
             this.prizes = (await this.$axios.get("/prizes")).data.prizes;
@@ -284,7 +305,7 @@ export default {
         font-size: 12px;
         line-height: 17px;
         color: #9d9696;
-        margin: 10px 0 80px;
+        margin: 10px 0 0;
     }
     &__input {
         font-family: "AnonymousPro-Bold";
@@ -297,6 +318,18 @@ export default {
         line-height: 20px;
         color: #72695f;
     }
+    .invalid_input {
+        border-bottom: 2px solid #ff575f !important;
+    }
+    .error-message {
+        font-family: "AnonymousPro-Bold";
+        margin-top: 16px;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 23px;
+        text-align: center;
+        color: #ff575f;
+    }
     &__btn {
         width: 411px;
         height: 60px;
@@ -308,6 +341,7 @@ export default {
         color: #ffffff;
         border: unset;
         cursor: pointer;
+        margin-top: 80px;
     }
 }
 .wheel {

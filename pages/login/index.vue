@@ -18,22 +18,54 @@
             >
                 <label for="fio">
                     Введите ФИО
-                    <input type="text" id="fio" v-model="user.name" />
+                    <input
+                        type="text"
+                        id="fio"
+                        v-model="user.name"
+                        @input="validateName({ name: 'name', length: 5 })"
+                        :class="{
+                            invalid_input: this.validation['name'] === false,
+                        }"
+                    />
                 </label>
                 <label for="wpp">
                     Введите номер WhatsApp
-                    <input type="text" id="wpp" v-model="user.phone_number" />
+                    <input
+                        type="text"
+                        id="wpp"
+                        v-model="user.phone_number"
+                        @input="
+                            validateName({ name: 'phone_number', length: 10 })
+                        "
+                        :class="{
+                            invalid_input:
+                                this.validation['phone_number'] === false,
+                        }"
+                    />
                 </label>
                 <label for="mail">
                     Введите эл. почту
-                    <input type="email" id="mail" v-model="user.email" />
+                    <input
+                        type="email"
+                        id="mail"
+                        v-model="user.email"
+                        @input="validateEmail"
+                        :class="{
+                            invalid_input: this.validation['email'] === false,
+                        }"
+                    />
                 </label>
                 <label for="instagram">
                     Введите ваш инстаграм
                     <input
+                        @input="validateName({ name: 'instagram', length: 3 })"
                         type="text"
                         id="instagram"
                         v-model="user.instagram"
+                        :class="{
+                            invalid_input:
+                                this.validation['instagram'] === false,
+                        }"
                     />
                 </label>
             </div>
@@ -51,22 +83,41 @@
 export default {
     layout: "login",
 
-    data() {
-        return {
-            user: {
-                name: "",
-                phone_number: "",
-                email: "",
-                instagram: "",
-            },
-        };
-    },
+    data: () => ({
+        user: {
+            name: "",
+            phone_number: "",
+            email: "",
+            instagram: "",
+        },
+        validation: {},
+        valid: false,
+    }),
 
     methods: {
         async handleSubmit() {
-            await this.$axios
-                .post("/attempts", this.user)
-                .then((res) => (window.location = `${res.data.link}`));
+            event.preventDefault();
+            if (Object.values(this.validation).every((item) => item === true)) {
+                await this.$axios
+                    .post("/attempts", this.user)
+                    .then((res) => (window.location = `${res.data.link}`));
+            }
+        },
+        validateEmail() {
+            if (
+                /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(
+                    this.user.email
+                )
+            ) {
+                this.validation["email"] = true;
+            } else this.validation["email"] = false;
+        },
+        validateName({ name, length }) {
+            if (this.user[name].length > length) {
+                this.validation[name] = true;
+            } else {
+                this.validation[name] = false;
+            }
         },
     },
 };
@@ -111,6 +162,9 @@ export default {
         border-bottom: 1px solid #9d9696;
         border-radius: 2px;
         background: #fff1e3;
+    }
+    .invalid_input {
+        border-bottom: 2px solid #ff575f !important;
     }
 }
 
