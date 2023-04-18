@@ -87,7 +87,7 @@
             <span class="prize__instructions"
                 >Приз и доступ к курсу придет <b>{{ email }}!</b></span
             >
-            <a @click="openLink" class="prize__openlink"
+            <a v-if="link !== ''" @click="openLink" class="prize__openlink"
                 >Для получения выигрыша: Перейдите по ссылке {{ this.link }}</a
             >
             <button

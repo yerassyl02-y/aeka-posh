@@ -93,7 +93,7 @@
                     </svg>
                     <a
                         class="font-20 text-underline"
-                        href="phone:+7 776 502 3636"
+                        href="https://wa.me/message/QGQGYLGDBLRVC1"
                         >+7 776 502 3636</a
                     >
                 </div>
@@ -132,11 +132,26 @@
             <div class="description">
                 <div class="description__items">
                     <h1>У вас будет доступ в закрытый аккаунт</h1>
+                    <h4>Записи Аеки 📝</h4>
                     <p>
-                        Amet minim mollit non deserunt ullamco est sit aliqua
-                        dolor do amet sint. Velit officia consequat duis enim
-                        velit mollit. Exercitation veniam consequat sunt nostrud
-                        amet.
+                        Привет! В своих записях я делюсь своими мыслями обо всём
+                        на свете, говорю о вере, и просто рассуждаю о нашем,
+                        женском)
+
+                        <br />
+                        <br />
+
+                        Давно хотела собрать в одном, укромном месте всё, что
+                        трогает мою душу и то, о чем могу говорить часами 😊
+
+                        <br />
+                        <br />
+                        Пусть это будет нашим с вами тайным островком, о котором
+                        будем знать только мы 🤫🤍
+                        <br />
+                        <br />
+                        Налейте себе чашку чая, устраивайтесь поудобнее в
+                        любимом кресле, и приготовьтесь, будет очень уютно ✨
                     </p>
                 </div>
                 <img src="@/assets/images/Phone.png" class="phone" />
@@ -181,7 +196,7 @@
                     >
                         <svg
                             class="mr-12"
-                            width="23"
+                            width="24"
                             height="24"
                             viewBox="0 0 23 24"
                             fill="none"
@@ -211,12 +226,12 @@
                                         item, idx
                                     ) in paragraph.subParagraphs"
                                     :key="item.title + idx"
-                                    class="d-flex align-center subparagraph"
+                                    class="d-flex subparagraph"
                                 >
                                     <svg
                                         class="mr-12"
-                                        width="19"
-                                        height="20"
+                                        width="16"
+                                        height="16"
                                         viewBox="0 0 19 20"
                                         fill="none"
                                         xmlns="http://www.w3.org/2000/svg"
@@ -285,7 +300,11 @@
                                 stroke-linejoin="round"
                             />
                         </svg>
-                        <a href="www.instagram.com">Instagram</a>
+                        <a
+                            href="https://instagram.com/mynotes.qz?igshid=YmMyMTA2M2Y="
+                            target="_blank"
+                            >Instagram</a
+                        >
                     </div>
                     <div class="d-flex align-center">
                         <svg
@@ -300,7 +319,11 @@
                                 fill="#F3F2F0"
                             />
                         </svg>
-                        <a href="tel: +7 776 502 3636">Whatsapp</a>
+                        <a
+                            href="https://wa.me/message/QGQGYLGDBLRVC1"
+                            target="_blank"
+                            >Whatsapp</a
+                        >
                     </div>
                 </div>
             </div>
@@ -394,30 +417,51 @@ export default {
             ],
             programParagraphs: [
                 {
-                    title: "Пункт 1",
-                    subParagraphs: [],
-                },
-                {
-                    title: "Пункт 2",
-                    subParagraphs: [],
-                },
-                {
-                    title: "Пункт 3",
+                    title: "1. Салтанат Жекебаева",
                     subParagraphs: [
                         {
-                            title: "Подпункт",
+                            title: "Тренер по технике речи и постановке голоса",
                         },
                         {
-                            title: "Подпункт",
-                        },
-                        {
-                            title: "Подпункт",
+                            title: "Тема 'Учимся говорить красиво, с достоинством и увренно'",
                         },
                     ],
                 },
                 {
-                    title: "Пункт 4",
-                    subParagraphs: [],
+                    title: "2. Улмекен",
+                    subParagraphs: [
+                        { title: "Наставник для стилистов" },
+                        {
+                            title: "Тема 'Как одежда меняет человека и как челвоек может влиять на одежду?'",
+                        },
+                    ],
+                },
+                {
+                    title: "3. Айгерим Еркен",
+                    subParagraphs: [
+                        {
+                            title: "Психолог",
+                        },
+                        {
+                            title: "Тема 'Мышление счастливого челока: как научиться видеть красоту в мелочах?'",
+                        },
+                    ],
+                },
+                {
+                    title: "4. Букенова Гайникен",
+                    subParagraphs: [
+                        {
+                            title: "'Красота в Исламе: как открыть ее внутри и постоянно поддерживать'",
+                        },
+                    ],
+                },
+                {
+                    title: "5. Айым Алтынбекова",
+                    subParagraphs: [
+                        {
+                            title: "'Красота во всех сферах жизни - секрет счастливой женщины'",
+                        },
+                    ],
                 },
             ],
         };
@@ -553,12 +597,18 @@ export default {
 }
 
 .content {
-    padding: 144px 80px 96px;
+    padding: 144px 0 96px;
 }
 
 .description {
     display: flex;
     justify-content: space-between;
+    padding: 0 80px;
+
+    &:first-of-type {
+        padding: 0 0 0 80px;
+        height: 600px;
+    }
 
     .btn-block {
         display: none;
@@ -597,6 +647,18 @@ export default {
             max-width: 631px;
         }
 
+        p {
+            text-align: left;
+        }
+
+        h4 {
+            font-weight: 700;
+            font-size: 28px;
+            line-height: 30px;
+            color: #72695f;
+            margin-top: 12px;
+        }
+
         button {
             width: 219px;
             height: 64px;
@@ -611,11 +673,19 @@ export default {
 }
 
 .wheel-block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
     margin-left: 70px;
+
+    h1,
+    p {
+        text-align: right;
+    }
 }
 
 .last-item {
-    max-width: 900px;
+    // max-width: 900px;
     div {
         border: unset;
         padding: unset;
@@ -635,6 +705,10 @@ export default {
         .subparagraph {
             margin-bottom: 8px;
 
+            svg {
+                margin-top: 6px;
+            }
+
             &:last-of-type {
                 margin-bottom: 0;
             }
@@ -652,6 +726,7 @@ export default {
             font-size: 20px;
             line-height: 28px;
             color: #72695f;
+            max-width: 550px;
         }
 
         &:last-of-type {
@@ -661,11 +736,11 @@ export default {
 }
 
 .phone {
-    max-width: 430px;
+    max-width: 500px;
     width: 100%;
     max-height: 430px;
     height: auto;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .wheel {
@@ -760,12 +835,14 @@ export default {
 }
 .rights {
     a {
+        text-align: right;
         font-style: normal;
         font-weight: 400;
         font-size: 14px;
         line-height: 14px;
         text-decoration-line: underline;
         text-align: right;
+        width: 100%;
         color: white;
 
         margin-bottom: 34px;
@@ -778,8 +855,7 @@ export default {
 
 @media screen and (max-width: 900px) {
     .header {
-        max-height: 812px;
-        height: 100%;
+        height: 812px;
         padding: 17px 24px 40px;
         background-position: right;
 
@@ -893,9 +969,19 @@ export default {
 
     .wheel-block {
         margin-left: 0;
+
+        h1 {
+            text-align: left;
+        }
     }
     .description {
         flex-direction: column;
+        padding: 0 16px;
+
+        &:first-of-type {
+            height: unset;
+            padding: 0 0 0 16px;
+        }
 
         h1 {
             margin-bottom: 30px;
@@ -974,6 +1060,14 @@ export default {
         padding: 60px 24px 40px;
         background: url("@/assets/images/footer-bg-mobile.png");
         background-position: right;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        .rights {
+            a {
+                text-align: center;
+            }
+        }
 
         .opportunity {
             width: 100%;
