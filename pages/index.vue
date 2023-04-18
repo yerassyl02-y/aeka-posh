@@ -669,7 +669,7 @@ export default {
 }
 
 .wheel {
-    margin: 106px 0 115px;
+    margin: 130px 0;
 }
 .align_center {
     align-items: center;
@@ -683,7 +683,8 @@ export default {
     padding: 100px 80px 32px;
     height: 512px;
     // background-image: url("@/assets/images/bg-footer.png");
-    background-color: rgba(0, 0, 0, 0.6);
+    background: url("@/assets/images/footer-bg.png");
+    background-size: cover;
 
     &__title {
         font-family: "AnonymousPro-Regular";
@@ -971,6 +972,8 @@ export default {
         align-items: center;
         height: unset;
         padding: 60px 24px 40px;
+        background: url("@/assets/images/footer-bg-mobile.png");
+        background-position: right;
 
         .opportunity {
             width: 100%;

@@ -31,7 +31,7 @@
                 <label for="wpp">
                     Введите номер WhatsApp
                     <input
-                        type="text"
+                        type="number"
                         id="wpp"
                         v-model="user.phone_number"
                         @input="
@@ -162,6 +162,11 @@ export default {
         border-bottom: 1px solid #9d9696;
         border-radius: 2px;
         background: #fff1e3;
+    }
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
     }
     .invalid_input {
         border-bottom: 2px solid #ff575f !important;

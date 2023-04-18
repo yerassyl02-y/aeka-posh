@@ -1,7 +1,7 @@
 <template>
     <div
         class="success-page d-flex justify-center bg-primary h-full w-full"
-        :class="{ wheel_open: !showEmail }"
+        :class="{ wheel_open: !showEmail, height_auto: showPrize }"
     >
         <form
             v-if="showEmail"
@@ -74,20 +74,27 @@
             v-if="showPrize"
             class="prize d-flex flex-column align-center justify-center"
         >
-            <h2 class="prize__title">Получи свой приз!</h2>
+            <h2 class="prize__title">Поздравляем!</h2>
             <div class="prize__image d-flex align-center justify-center">
                 <img :src="prize.image" />
             </div>
             <p class="prize__subtitle">Вы выиграли</p>
             <h3 class="prize__item">{{ prize.name }}</h3>
+            <span class="instruction-text"
+                >Для получения своего бонуса, выложи скрин этой страницы! Не
+                забудь отметить @aeka.posh и @aekas.notes
+            </span>
             <span class="prize__instructions"
                 >Приз и доступ к курсу придет <b>{{ email }}!</b></span
+            >
+            <a @click="openLink" class="prize__openlink"
+                >Для получения выигрыша: Перейдите по ссылке {{ this.link }}</a
             >
             <button
                 class="prize__button d-flex align-center justify-center bg-brown"
                 @click="openLink"
             >
-                Хорошо
+                Все понятно
             </button>
             <span class="prize__faq"
                 >В случае вопросов и доступа к курсу пишите на номер
@@ -195,9 +202,9 @@ export default {
                 },
             ],
             prizeId: 7,
-            showEmail: true,
+            showEmail: false,
             showWheel: false,
-            showPrize: false,
+            showPrize: true,
             loader: false,
             prize: {},
             user: {},
@@ -206,6 +213,10 @@ export default {
             valid: false,
             message: "",
         };
+    },
+    async created() {
+        const params = this.$route.query;
+        await this.$axios.get("/attempts/results", params);
     },
     methods: {
         validateEmail() {
@@ -268,7 +279,7 @@ export default {
                     this.link = res.data.link;
                 })
                 .catch((e) => {
-                    this.prizeId = 7;
+                    this.prizeId = 3;
                 });
         },
         onRotateEnd(prize) {
@@ -397,7 +408,7 @@ export default {
 
 .prize {
     width: 100%;
-    max-width: 372px;
+    max-width: 450px;
     &__title {
         font-family: "AnonymousPro-Bold";
         font-style: normal;
@@ -424,11 +435,33 @@ export default {
         }
     }
 
+    .instruction-text {
+        font-family: "AnonymousPro-Regular";
+        font-size: 18px;
+        text-align: center;
+        line-height: 33px;
+        color: #72695f;
+        margin-bottom: 16px;
+    }
+
     &__subtitle {
         font-family: "AnonymousPro-Regular";
         font-size: 24px;
         line-height: 33px;
         color: #9d9696;
+    }
+
+    &__openlink {
+        font-size: 16px;
+        line-height: 19px;
+
+        font-family: "AnonymousPro-Regular";
+        font-style: normal;
+        font-weight: 400;
+        text-decoration-line: underline;
+        color: #72695f;
+        text-align: center;
+        margin-top: 10px;
     }
 
     &__item {
@@ -459,7 +492,7 @@ export default {
         line-height: 24px;
         color: #ffffff;
 
-        width: 127px;
+        width: 190px;
         height: 64px;
         border: unset;
         cursor: pointer;
@@ -491,6 +524,10 @@ export default {
 }
 
 @media screen and (max-width: 760px) {
+    .height_auto {
+        height: unset;
+        padding: 24px 0 40px;
+    }
     .form {
         padding: 80px 24px 0;
 
