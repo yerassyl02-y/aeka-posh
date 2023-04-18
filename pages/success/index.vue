@@ -80,8 +80,18 @@
             </div>
             <p class="prize__subtitle">Вы выиграли</p>
             <h3 class="prize__item">{{ prize.name }}</h3>
-            <span class="instruction-text"
-                >Для получения своего бонуса, выложи скрин этой страницы! Не
+            <span class="instruction-text"> </span>
+            <span
+                v-if="prize.id === 3 || prize.id === 1"
+                class="instruction-text"
+            >
+                Для получения своего бонуса, переходи по ссылке ниже:
+                <a href="https://youtu.be/dE17vrlP8sQ"
+                    >https://youtu.be/dE17vrlP8sQ</a
+                >
+            </span>
+            <span v-else class="instruction-text">
+                Для получения своего бонуса, выложи скрин этой страницы! Не
                 забудь отметить @aeka.posh и @aekas.notes
             </span>
             <span class="prize__instructions"
@@ -206,7 +216,7 @@ export default {
             showWheel: false,
             showPrize: false,
             loader: false,
-            prize: {},
+            prize: { id: 2 },
             user: {},
             link: "",
             email: "",
@@ -324,7 +334,7 @@ export default {
         margin: 10px 0 0;
     }
     &__input {
-        font-family: "AnonymousPro-Bold";
+        font-family: "AnonymousPro-Regular";
         border: unset;
         border-bottom: 2px solid #72695f;
         background: #fff1e3;
@@ -447,6 +457,11 @@ export default {
         line-height: 33px;
         color: #72695f;
         margin-bottom: 16px;
+
+        a {
+            color: #72695f;
+            text-decoration: underline;
+        }
     }
 
     &__subtitle {

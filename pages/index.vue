@@ -1,20 +1,28 @@
 <template>
-    <div class="main-content h-full">
+    <div class="main-content h-full" :class="{ hidden: openMenu }">
         <div class="header d-flex flex-column justify-space-between">
             <div class="d-flex justify-space-between w-full">
                 <nav class="nav header__navigation">
                     <nuxt-link
-                        class="nav__links font-20"
-                        :to="item.url"
                         v-for="item in navigationItems"
                         :key="item.title"
+                        class="nav__links font-20"
+                        :to="{ path: item.url, hash: item.url }"
+                        v-scroll-to="{
+                            element: item.url,
+                            easing: 'ease',
+                            lazy: false,
+                            offset: -150,
+                            force: true,
+                            cancelable: true,
+                        }"
                     >
                         {{ item.title }}
                     </nuxt-link>
                 </nav>
                 <div class="burger">
                     <svg
-                        @click="openMenu = true"
+                        @click="openMenuItems"
                         width="34"
                         height="34"
                         viewBox="0 0 34 34"
@@ -50,7 +58,7 @@
                     >
                         <div class="d-flex align-center burger__back">
                             <svg
-                                @click="openMenu = false"
+                                @click="closeMenu"
                                 width="32"
                                 height="32"
                                 viewBox="0 0 32 32"
@@ -62,16 +70,26 @@
                                     fill="#FFF7F1"
                                 />
                             </svg>
-                            <a @click="openMenu = false">Закрыть</a>
+                            <a @click="closeMenu">Закрыть</a>
                         </div>
                         <div class="burger__links d-flex flex-column">
                             <nuxt-link
                                 class="nav__links font-20"
-                                :to="item.url"
                                 v-for="item in navigationItems"
                                 :key="item.title"
+                                :to="{ path: item.url, hash: item.url }"
+                                v-scroll-to="{
+                                    element: item.url,
+                                    easing: 'ease',
+                                    lazy: false,
+                                    offset: -150,
+                                    force: true,
+                                    cancelable: true,
+                                }"
                             >
-                                {{ item.title }}
+                                <div @click="closeMenu">
+                                    {{ item.title }}
+                                </div>
                             </nuxt-link>
                         </div>
                         <button class="burger__button">Записаться</button>
@@ -156,7 +174,7 @@
                 </div>
                 <img src="@/assets/images/Phone.png" class="phone" />
             </div>
-            <div class="description wheel">
+            <div class="description wheel" id="Prize">
                 <div class="btn-block">
                     <p>Крути колесо и получай крутые подарки!</p>
                     <button
@@ -183,7 +201,7 @@
                     </button>
                 </div>
             </div>
-            <div class="description d-flex last-item">
+            <div class="description d-flex last-item" id="Programs">
                 <h1 class="program-title">Программа курса</h1>
                 <div class="description__items">
                     <div
@@ -408,11 +426,11 @@ export default {
                 },
                 {
                     title: "Выиграть приз",
-                    url: "/",
+                    url: "#Prize",
                 },
                 {
                     title: "Программа",
-                    url: "/",
+                    url: "#Programs",
                 },
             ],
             programParagraphs: [
@@ -466,10 +484,21 @@ export default {
             ],
         };
     },
+    methods: {
+        openMenuItems() {
+            this.openMenu = true;
+        },
+        closeMenu() {
+            this.openMenu = false;
+        },
+    },
 };
 </script>
 
 <style lang="scss" scoped>
+.hidden {
+    overflow: hidden;
+}
 .header {
     background: url("@/assets/images/BG.png");
     max-height: 890px;
@@ -732,6 +761,10 @@ export default {
         &:last-of-type {
             margin-bottom: 0;
         }
+
+        &:first-of-type {
+            margin-top: 48px;
+        }
     }
 }
 
@@ -855,7 +888,7 @@ export default {
 
 @media screen and (max-width: 900px) {
     .header {
-        height: 812px;
+        height: 850px;
         padding: 17px 24px 40px;
         background-position: right;
 
@@ -1050,6 +1083,10 @@ export default {
             span {
                 font-size: 16px;
                 line-height: 22px;
+            }
+
+            &:first-of-type {
+                margin-top: 0;
             }
         }
     }
