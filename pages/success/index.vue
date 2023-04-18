@@ -201,10 +201,10 @@ export default {
                     start_date: "2022-05-22T09:58:04.925Z",
                 },
             ],
-            prizeId: 7,
+            prizeId: 3,
             showEmail: false,
-            showWheel: false,
-            showPrize: true,
+            showWheel: true,
+            showPrize: false,
             loader: false,
             prize: {},
             user: {},
@@ -215,8 +215,23 @@ export default {
         };
     },
     async created() {
+        // const params = {
+        //     OutSum: 5900,
+        //     InvId: 45,
+        //     Shp_id: "a759cf3d-ea6f-4d5e-8dc2-6a569acce704",
+        //     SignatureValue: "a6baf827610dd643e27fd18759f0058a",
+        //     IsTest: 1,
+        //     Culture: "ru",
+        // };
         const params = this.$route.query;
-        await this.$axios.get("/attempts/results", params);
+        Object.values(params).length
+            ? await this.$axios
+                  .get("/attempts/results", { params })
+                  .then((res) => console.log(res))
+                  .catch((err) => console.error(err))
+            : console.log("query is empty");
+
+        // OutSum=5900.00&InvId=45&Shp_id=a759cf3d-ea6f-4d5e-8dc2-6a569acce704&SignatureValue=a6baf827610dd643e27fd18759f0058a&IsTest=1&Culture=ru
     },
     methods: {
         validateEmail() {
