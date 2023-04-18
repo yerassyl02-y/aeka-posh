@@ -151,7 +151,7 @@
                         Выиграть приз
                     </button>
                 </div>
-                <img src="@/assets/images/wheel.png" />
+                <img src="@/assets/images/wheel2.svg" />
                 <div class="description__items wheel-block">
                     <h1>
                         За приобретение моих записок я приготовила для вас

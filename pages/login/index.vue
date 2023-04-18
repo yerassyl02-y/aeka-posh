@@ -15,6 +15,7 @@
             </p>
             <div
                 class="form__inputs d-flex flex-column align-center w-full login-inputs"
+                :class="{ margin_bottom: !validationMessage }"
             >
                 <label for="fio">
                     Введите ФИО
@@ -69,6 +70,9 @@
                     />
                 </label>
             </div>
+            <span v-if="validationMessage" class="validate-message">
+                Заполните все поля
+            </span>
             <button
                 type="submit"
                 class="form__button d-flex align-center justify-center font-24 font-bold bg-brown"
@@ -92,16 +96,31 @@ export default {
         },
         validation: {},
         valid: false,
+        validationMessage: false,
     }),
+
+    watch: {
+        user: {
+            handler: function () {
+                if (
+                    Object.values(this.validation).every(
+                        (item) => item === true
+                    )
+                )
+                    this.validationMessage = false;
+                else this.validationMessage = true;
+            },
+            deep: true,
+        },
+    },
 
     methods: {
         async handleSubmit() {
-            event.preventDefault();
             if (Object.values(this.validation).every((item) => item === true)) {
                 await this.$axios
                     .post("/attempts", this.user)
                     .then((res) => (window.location = `${res.data.link}`));
-            }
+            } else this.validationMessage = true;
         },
         validateEmail() {
             if (
@@ -147,8 +166,16 @@ export default {
     }
 }
 
+.validate-message {
+    font-size: 14px;
+    line-height: 19px;
+    color: #ff575f;
+    font-family: "AnonymousPro-Regular";
+    margin: 16px 0 103px;
+}
+
 .login-inputs {
-    margin: 64px 0 103px;
+    margin: 64px 0 0;
 
     label {
         margin-bottom: 24px;
@@ -171,6 +198,9 @@ export default {
     .invalid_input {
         border-bottom: 2px solid #ff575f !important;
     }
+}
+.margin_bottom {
+    margin-bottom: 103px;
 }
 
 @media screen and (max-width: 500px) {
