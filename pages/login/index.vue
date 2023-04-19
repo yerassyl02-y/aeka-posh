@@ -23,7 +23,7 @@
                         type="text"
                         id="fio"
                         v-model="user.name"
-                        @input="validateName({ name: 'name', length: 5 })"
+                        @input="validateName({ name: 'name', length: 2 })"
                         :class="{
                             invalid_input: this.validation['name'] === false,
                         }"
@@ -36,7 +36,7 @@
                         id="wpp"
                         v-model="user.phone_number"
                         @input="
-                            validateName({ name: 'phone_number', length: 10 })
+                            validateName({ name: 'phone_number', length: 7 })
                         "
                         :class="{
                             invalid_input:

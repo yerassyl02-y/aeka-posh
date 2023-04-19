@@ -107,8 +107,7 @@
                 Все понятно
             </button>
             <span class="prize__faq"
-                >В случае вопросов и доступа к курсу пишите на номер
-                <i>whatsapp</i>
+            >Если еще остались вопросы обращайтесь по номеру: <a style="text-decoration: none;" href="https://wa.me/message/QGQGYLGDBLRVC1">+7 776 502 3636  </a>
             </span>
             <a
                 href="https://wa.me/+7 776 502 3636"
