@@ -78,7 +78,7 @@
             <div class="prize__image d-flex align-center justify-center">
                 <img :src="prize.image" />
             </div>
-            <p class="prize__subtitle">Вы выиграли</p>
+            <p class="prize__subtitle">ВАШ БОНУС</p>
             <h3 class="prize__item">{{ prize.name }}</h3>
             <span class="instruction-text"> </span>
             <span
