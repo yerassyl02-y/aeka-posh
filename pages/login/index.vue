@@ -18,7 +18,7 @@
                 :class="{ margin_bottom: !validationMessage }"
             >
                 <label for="fio">
-                    Введите ФИО
+                    Введите имя
                     <input
                         type="text"
                         id="fio"
@@ -32,7 +32,7 @@
                 <label for="wpp">
                     Введите номер WhatsApp
                     <input
-                        type="number"
+                        type="tel"
                         id="wpp"
                         v-model="user.phone_number"
                         @input="
@@ -110,7 +110,7 @@ export default {
             checkbox: false,
         },
         validation: {
-            checkbox: false,
+            checkbox: true,
         },
         valid: false,
         validationMessage: false,

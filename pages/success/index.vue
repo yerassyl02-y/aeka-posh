@@ -26,7 +26,7 @@
                 class="form__btn d-flex align-center justify-center bg-brown"
                 type="submit"
             >
-                Перейти к крутке барабана
+              перейти к прокрутке колеса
             </button>
         </form>
         <div
@@ -34,9 +34,9 @@
             class="wheel-content d-flex flex-column align-center justify-center"
         >
             <div class="d-flex flex-column align-center">
-                <h1 class="wheel-content__title">Поздравляем!</h1>
+<!--                <h1 class="wheel-content__title">Поздравляем!</h1>-->
                 <p class="wheel-content__subtitle">
-                    Крути барабан и выигрывай прямо сейчас
+                    Крути колесо и выигрывай прямо сейчас
                 </p>
             </div>
             <div class="wheel">
@@ -59,7 +59,7 @@
                 >
                     <img
                         slot="wheel"
-                        src="@/assets/images/wheel2.svg"
+                        src="@/assets/images/wheel3.svg"
                         class="wheel__image"
                     />
                     <img

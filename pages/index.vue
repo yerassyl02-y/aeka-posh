@@ -149,7 +149,7 @@
         <div class="content bg-primary">
             <div class="description">
                 <div class="description__items">
-                    <h1>У вас будет доступ в закрытый аккаунт</h1>
+                    <h1>У вас будет доступ на закрытый аккаунт</h1>
                     <h4>Записи Аеки 📝</h4>
                     <p>
                         Привет! В своих записях я делюсь своими мыслями обо всём
@@ -184,7 +184,7 @@
                         Выиграть приз
                     </button>
                 </div>
-                <img src="@/assets/images/wheel2.svg" />
+                <img src="@/assets/images/wheel3.svg" />
                 <div class="description__items wheel-block">
                     <h1>
                         За приобретение моих записок я приготовила для вас
@@ -202,7 +202,7 @@
                 </div>
             </div>
             <div class="description d-flex last-item" id="Programs">
-                <h1 class="program-title">Программа курса</h1>
+                <h1 class="program-title">Приглашенные спикеры</h1>
                 <div class="description__items">
                     <div
                         v-for="paragraph in programParagraphs"
@@ -319,7 +319,7 @@
                             />
                         </svg>
                         <a
-                            href="https://instagram.com/mynotes.qz?igshid=YmMyMTA2M2Y="
+                            href="https://instagram.com/aekas.notes?igshid=YmMyMTA2M2Y="
                             target="_blank"
                             >Instagram</a
                         >
@@ -402,11 +402,15 @@
                     </div>
                 </div>
                 <div class="rights d-flex flex-column">
-                    <a href="https://womenscommunity.kz/offer">
+                    <a style="text-decoration: none" href="https://womenscommunity.kz/offer">
                         Договор оферты
                     </a>
-                    <a href="https://womenscommunity.kz/confidential">
+                    <a style="text-decoration: none" href="https://womenscommunity.kz/confidential">
                         Согласие на сбор персональных данных
+                    </a>
+
+                    <a style="text-decoration: none">
+                      Записи Аеки возврату или обмену не подлежат
                     </a>
                 </div>
             </div>
@@ -499,6 +503,7 @@ export default {
 .hidden {
     overflow: hidden;
 }
+
 .header {
     background: url("@/assets/images/BG.png");
     max-height: 890px;
