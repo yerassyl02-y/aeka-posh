@@ -64,7 +64,7 @@
                     />
                     <img
                         slot="button"
-                        src="@/assets/images/wheel-button.svg"
+                        src="@/assets/images/wheel-button1.svg"
                         class="wheel__btn"
                     />
                 </FortuneWheel>
