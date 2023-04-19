@@ -383,7 +383,7 @@
                                 stroke-linejoin="round"
                             />
                         </svg>
-                        <a href="www.instagram.com">Instagram</a>
+                        <a href="https://www.instagram.com/aekas.notes/?igshid=YmMyMTA2M2Y=">Instagram</a>
                     </div>
                     <div class="d-flex align-center">
                         <svg
@@ -398,7 +398,7 @@
                                 fill="#F3F2F0"
                             />
                         </svg>
-                        <a href="tel: +7 776 502 3636">Whatsapp</a>
+                        <a href="https://wa.me/message/QGQGYLGDBLRVC1">Whatsapp</a>
                     </div>
                 </div>
                 <div class="rights d-flex flex-column">
