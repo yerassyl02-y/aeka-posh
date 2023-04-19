@@ -202,7 +202,7 @@
                 </div>
             </div>
             <div class="description d-flex last-item" id="Programs">
-                <h1 class="program-title">Приглашенные спикеры</h1>
+                <h1 class="program-title">Гости моих записей</h1>
                 <div class="description__items">
                     <div
                         v-for="paragraph in programParagraphs"
@@ -485,6 +485,12 @@ export default {
                         },
                     ],
                 },
+              {
+                title: "6. Еще много полезного и интересного",
+                subParagraphs: [
+
+                ],
+              },
             ],
         };
     },
