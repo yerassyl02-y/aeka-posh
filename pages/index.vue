@@ -92,7 +92,7 @@
                                 </div>
                             </nuxt-link>
                         </div>
-                        <button class="burger__button">Записаться</button>
+                        <button @click="$router.push({ path: '/login' })" class="burger__button">Записаться</button>
                     </div>
                 </div>
                 <div class="header__number d-flex align-center">
