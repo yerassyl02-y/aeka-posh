@@ -26,7 +26,7 @@
                 class="form__btn d-flex align-center justify-center bg-brown"
                 type="submit"
             >
-              перейти к прокрутке колеса
+                перейти к прокрутке колеса
             </button>
         </form>
         <div
@@ -34,7 +34,7 @@
             class="wheel-content d-flex flex-column align-center justify-center"
         >
             <div class="d-flex flex-column align-center">
-<!--                <h1 class="wheel-content__title">Поздравляем!</h1>-->
+                <!--                <h1 class="wheel-content__title">Поздравляем!</h1>-->
                 <p class="wheel-content__subtitle">
                     Крути колесо и выигрывай прямо сейчас
                 </p>
@@ -86,9 +86,7 @@
                 class="instruction-text"
             >
                 Для получения своего бонуса, переходи по ссылке ниже:
-                <a href="https://youtu.be/dE17vrlP8sQ"
-                    >https://youtu.be/dE17vrlP8sQ</a
-                >
+                <a :href="link">{{ link }}</a>
             </span>
             <span v-else class="instruction-text">
                 Для получения своего бонуса, выложи скрин этой страницы! Не
@@ -97,9 +95,6 @@
             <span class="prize__instructions"
                 >Приз и доступ к курсу придет <b>{{ email }}!</b></span
             >
-            <a v-if="link !== ''" @click="openLink" class="prize__openlink"
-                >Для получения выигрыша: Перейдите по ссылке {{ this.link }}</a
-            >
             <button
                 class="prize__button d-flex align-center justify-center bg-brown"
                 @click="openLink"
@@ -107,7 +102,12 @@
                 Все понятно
             </button>
             <span class="prize__faq"
-            >Если еще остались вопросы обращайтесь по номеру: <a style="text-decoration: none;" href="https://wa.me/message/QGQGYLGDBLRVC1">+7 776 502 3636  </a>
+                >Если еще остались вопросы обращайтесь по номеру:
+                <a
+                    style="text-decoration: none"
+                    href="https://wa.me/message/QGQGYLGDBLRVC1"
+                    >+7 776 502 3636
+                </a>
             </span>
         </div>
     </div>
