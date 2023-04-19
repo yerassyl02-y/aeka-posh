@@ -445,11 +445,11 @@ export default {
                             title: "@saltanat_zharkebayeva",
                         },
                         {
-                          title: "@saltanat_zharkebayeva",
-                        },
-                        {
                             title: "тренер по технике речи и постановке голоса",
                         },
+                      {
+                        title: "Учимся говорить красиво, с достоинством и уверенно",
+                      },
                     ],
                 },
                 {
