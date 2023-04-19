@@ -73,6 +73,20 @@
             <span v-if="validationMessage" class="validate-message">
                 Заполните все поля
             </span>
+            <label for="checkbox" class="checkbox d-flex flex-row">
+                <input
+                    type="checkbox"
+                    id="checkbox"
+                    class="checkbox__input"
+                    v-model="user.checkbox"
+                />
+                <span
+                    >Я соглашаюсь с тем, что НЕТ ВОЗВРАТА и с
+                    <a href="https://womenscommunity.kz/offer"
+                        >договором оферты</a
+                    >
+                </span>
+            </label>
             <button
                 type="submit"
                 class="form__button d-flex align-center justify-center font-24 font-bold bg-brown"
@@ -93,8 +107,11 @@ export default {
             phone_number: "",
             email: "",
             instagram: "",
+            checkbox: false,
         },
-        validation: {},
+        validation: {
+            checkbox: false,
+        },
         valid: false,
         validationMessage: false,
     }),
@@ -201,6 +218,25 @@ export default {
 }
 .margin_bottom {
     margin-bottom: 103px;
+}
+
+.checkbox {
+    flex-direction: row !important;
+    cursor: pointer;
+
+    a {
+        text-decoration: underline;
+        cursor: pointer;
+        color: #9d9696;
+    }
+
+    &__input {
+        height: fit-content;
+        margin-top: 3px;
+        margin-right: 8px;
+
+        margin-bottom: 30px;
+    }
 }
 
 @media screen and (max-width: 500px) {
