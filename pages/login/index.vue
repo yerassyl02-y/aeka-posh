@@ -78,7 +78,7 @@
                     type="checkbox"
                     id="checkbox"
                     class="checkbox__input"
-                    v-model="user.checkbox"
+                    v-model="validation.checkbox"
                 />
                 <span
                     >Я соглашаюсь с тем, что НЕТ ВОЗВРАТА и с
