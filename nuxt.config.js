@@ -48,7 +48,7 @@ export default {
   ],
 
   axios: {
-    baseURL: 'https://womenscommunity.kz:8443/',
+    baseURL: 'https://womenscommunity.kz:8443/', //'https://womenscommunity.kz:8443/',
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

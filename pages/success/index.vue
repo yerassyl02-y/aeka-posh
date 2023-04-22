@@ -274,7 +274,7 @@ export default {
                     this.link = res.data.link;
                 })
                 .catch((e) => {
-                    this.prizeId = 3;
+                  window.location = `https://womenscommunity.kz/failure`
                 });
         },
         onRotateEnd(prize) {
