@@ -136,7 +136,10 @@ export default {
             if (Object.values(this.validation).every((item) => item === true)) {
                 await this.$axios
                     .post("/attempts", this.user)
-                    .then((res) => (window.location = `${res.data.link}`));
+                    .then((res) => (window.location = `${res.data.link}`))
+                    .catch((e) => {
+                      window.location = `https://womenscommunity.kz/failure`
+                    });;
             } else this.validationMessage = true;
         },
         validateEmail() {
